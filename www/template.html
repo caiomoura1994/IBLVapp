@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet">
+		<title>IBLV App</title>
+
+	</head>
+	<body>
+	<div class="bar bar-header bar-calm">
+  <h1 class="title">bar-calm</h1>
+</div>
+		<div class="container">
+			<div class="tabs">
+			  <a class="tab-item">
+			    Home
+			  </a>
+			  <a class="tab-item">
+			    Favorites
+			  </a>
+			  <a class="tab-item">
+			    Settings
+			  </a>
+			</div>
+			{% block content %}
+			{% endblock %}
+
+		</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
+</html>

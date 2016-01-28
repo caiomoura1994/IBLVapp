@@ -1,0 +1,63 @@
+     <a class="item item-avatar" href="#">
+      <img src="ionic.png">
+      <h2>Caio Moura</h2>
+      <p>Back off, man. I'm a scientist.</p>
+    </a>
+
+      <ion-side-menus>
+
+           <!-- Center content -->
+        <ion-side-menu-content>
+          <ion-header-bar class="bar-dark">
+
+            <button class="button button-icon" ng-click="toggleProjects()">
+              <i class="icon ion-navicon"></i>
+            </button>
+            <h1 class="title">Bem vindo {{activeProject.title}}</h1>
+            <!-- New Task button-->
+            <button class="button button-icon" ng-click="newTask()">
+              <i class="icon ion-compose"></i>
+            </button>
+          </ion-header-bar>
+          <ion-content scroll="false">
+            <ion-list>
+              <ion-item ng-repeat="task in activeProject.tasks">
+                {{task.title}} - {{task.title2}}
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ion-side-menu-content>
+        <!-- our list and list items -->
+        
+    <a class="item item-avatar" href="#">
+      <img src="ionic.png">
+      <h2>Caio Moura</h2>
+      <p>Back off, man. I'm a scientist.</p>
+    </a>
+
+        <!-- Left menu -->
+    
+
+      <ion-side-menu side="right">
+        <ion-header-bar class="bar-dark"> 
+            <button class="button icon-left ion-home">Home</button>        
+            <h1 class="title">Menu2</h1>        
+        </ion-header-bar>
+
+        <ion-list>
+          <ion-item>
+            <button href="/list">caio</button>
+                <a class="button button-block button-positive" menu-close href="pagetest.html">
+                  Sobre
+                </a>                 
+                <a class="button button-block button-positive" menu-close href="pagetest.html">
+                  Pedido de oração
+                </a> 
+                 <a class="button button-block button-positive" menu-close href="pagetest.html">Contato
+                </a>                 
+                <a class="button button-block button-positive" menu-close href="pagetest.html">Irmãos
+                </a>  
+               
+          </ion-item>
+        </ion-list>
+        </ion-side-menu>

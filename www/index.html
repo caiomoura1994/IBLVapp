@@ -1,29 +1,207 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <title>IBLV </title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
     <script src="cordova.js"></script>
-
-    <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    
   </head>
+    <body ng-app="todo" ng-controller="TodoCtrl">
 
-  <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
-  </body>
-</html>
+      <ion-side-menus>
+
+           <!-- Center content -->
+        <ion-side-menu-content>
+
+        <ion-content header-shrink scroll-event-interval="5">
+        <div style="height: 20px;"></div>
+        <div class="list card">
+
+          <div class="item item-avatar">
+            <img src="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xpf1/t51.2885-19/10950584_806936916038164_1249282623_a.jpg">
+            <h2>Caio Barros de Moura</h2>
+            <p>03/11/2015</p>
+          </div>
+
+          <div class="item item-body">
+            <img class="full-image" src="https://pbs.twimg.com/profile_images/1304315957/logo_2.png">
+            <p>
+              Feed de Noticias... Hoje as 19h Culto imperdivel q vc nao pode perder  hasuhsa
+            </p>
+            <p>
+              <a href="#" class="subdued">1 Curtidas</a>
+              <a href="#" class="subdued">5 Comentarios</a>
+            </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+              <i class="icon ion-thumbsup"></i>
+              Curtir
+            </a>
+            <a class="tab-item" ng-click="newTask()">
+              <i class="icon ion-chatbox"></i>
+              Comentar
+            </a>
+            <a class="tab-item" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
+       
+              <i class="icon ion-share"></i>
+              Compartilhar
+            </a>
+
+          </div>
+
+
+        </div>
+        <div class="list card">
+
+          <div class="item item-avatar">
+            <img src="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xpf1/t51.2885-19/10950584_806936916038164_1249282623_a.jpg">
+            <h2>Caio Barros de Moura</h2>
+            <p>03/11/2015</p>
+          </div>
+
+          <div class="item item-body">
+            <img class="full-image" src="https://pbs.twimg.com/profile_images/1304315957/logo_2.png">
+            <p>
+              Feed de Noticias... Hoje as 19h Culto imperdivel q vc nao pode perder  hasuhsa
+            </p>
+            <p>
+              <a href="#" class="subdued">1 Curtidas</a>
+              <a href="#" class="subdued">5 Comentarios</a>
+            </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+              <i class="icon ion-thumbsup"></i>
+              Curtir
+            </a>
+            <a class="tab-item" ng-click="newTask()">
+              <i class="icon ion-chatbox"></i>
+              Comentar
+            </a>
+            <a class="tab-item" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
+       
+              <i class="icon ion-share"></i>
+              Compartilhar
+            </a>
+
+          </div>
+
+        <div style="height: 22px;"></div>
+
+        </div>
+          <ion-header-bar class="bar-calm">
+
+            <button class="button button-icon" ng-click="toggleProjects()">
+              <i class="icon ion-navicon"></i>
+            </button>
+            <h1 class="title">Bem vindo {{activeProject.title}}</h1>
+            
+            <!-- New Task button-->
+            <button class="button button-icon" ng-click="newTask()">
+              <i class="icon ion-compose"></i>
+            </button>
+          </ion-header-bar>
+          <!-- <ion-content scroll="false">
+            <ion-list>
+              <ion-item ng-repeat="task in activeProject.tasks">
+                {{task.title}} - {{task.title2}}
+              </ion-item>
+            </ion-list>
+          </ion-content> -->
+        </ion-side-menu-content>
+        <!-- our list and list items -->
+        <!-- <ion-list>
+          <ion-item ng-repeat="task in tasks">
+            {{task.title}}
+          </ion-item>
+        </ion-list> -->
+      </ion-content>
+    </ion-side-menu-content>
+
+        <!-- Left menu -->
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-calm">
+        <h1 class="title">Projects</h1>
+        <button class="button button-icon ion-plus" ng-click="newProject()">
+        </button>
+
+      </ion-header-bar>
+
+      <ion-content scroll="false">
+        <ion-list>
+          <!-- ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
+            -->
+
+          </ion-item>
+        </ion-list>
+
+      </ion-content>
+    </ion-side-menu>
+
+      <ion-side-menu side="right">
+        <ion-header-bar class="bar-calm">      
+            <h1 class="title">Menu2</h1>        
+        </ion-header-bar>
+
+        <ion-list>
+          <ion-item>
+            <button href="/list">caio</button>
+
+                <a class="button button-block button-positive" menu-close href="login.html">Login
+                </a>
+                <a class="button button-block button-positive" menu-close href="pagetest.html">
+                  Sobre
+                </a>                 
+                <a class="button button-block button-positive" menu-close href="pagetest.html">
+                  Pedido de oração
+                </a> 
+                 <a class="button button-block button-positive" menu-close href="pagetest.html">Contato
+                </a>                 
+                <a class="button button-block button-positive" menu-close href="#/pagetest">Irmãos
+                </a>  
+               
+          </ion-item>
+        </ion-list>
+        </ion-side-menu>
+
+  <div class="tabs-striped tabs-color-calm">
+    <div class="tabs">
+
+      <a class="tab-item active" href="#">
+        <i class="icon ion-home"></i>
+        Test
+      </a>
+
+      <a class="tab-item" href="#">
+        <i class="icon ion-star"></i>
+        Favorites
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        Settings
+      </a>
+    </div>
+  </div>
+
+  <script id="pagetest" type="text/ng-template">
+  <!-- The title of the ion-view will be shown on the navbar -->
+  <ion-view view-title="Home">
+    <ion-content ng-controller="HomeCtrl">
+      <!-- The content of the page -->
+      <a href="#/music">Go to music page!</a>
+    </ion-content>
+  </ion-view>
+  </script>
+    
+    </body> 
+    </html>

@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login </title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+    
+  </head>
+  <body>
+    <div class="bar bar-header bar-stable">
+    <h1 class="title">Login</h1>
+  </div>
+    <ion-view view-title="Login" name="login-view">
+  <ion-content class="padding">
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" placeholder="Nome " ng-model="data.username">
+          </label>
+
+          <label class="item item-input">
+              <input type="password" placeholder="Senha" ng-model="data.password">
+          </label>
+
+          <a class="button button-block button-positive" menu-close href="/">Login
+          </a>  
+
+      </div>
+  </ion-content>
+</ion-view>
+  </body>    
+</html>

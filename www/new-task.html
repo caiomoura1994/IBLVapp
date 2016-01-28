@@ -1,0 +1,31 @@
+<div class="modal">
+
+    <!-- Modal header bar-->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">Pedido de Oração</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="E-mail" ng-model="task.title">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Digite seu pedido ?" ng-model="task.title2">
+          </label>
+
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive" ng-click="closeNewTask()">Novo Pedido</button>
+        </div>
+      </form>
+
+      <div><!-- {{task.title}} -->
+      </div>
+    </ion-content>
+
+  </div>
